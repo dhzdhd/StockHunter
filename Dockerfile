@@ -10,4 +10,4 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 RUN npm install
 
 ENTRYPOINT [ "npm" ]
-RUN ["run", "dev"]
+CMD ["run", "dev", "--host"]

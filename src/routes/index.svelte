@@ -9,7 +9,7 @@
 </script>
 
 <div>
-	<img class="w-full fixed h-full" src="../../static/2.jpg">
+	<img class="w-full fixed h-full" src="2.jpg" alt="background">
 	<div class="w-full fixed bg-opacity-30 text-white backdrop-filter backdrop-blur-2xl h-screen flex flex-col items-center ">
 		<Header items={[
 			{name: "Login", func: () => {goto('/login')}},

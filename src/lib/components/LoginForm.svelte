@@ -19,8 +19,7 @@
 	let bottom = 'Login';
 </script>
 
-<div
-	class="bg-slate-100 shadow-2xl
+<div class="bg-slate-100 shadow-2xl
             flex flex-col gap-5 items-center justify-center 
             rounded-3xl h-96 w-96"
 >
