@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { isLogin } from '../../models/route';
 	import { user } from '../../models/auth';
+	import { goto } from '$app/navigation';
 
 	export const login = (): void => {
 		isLogin.update((e) => !e);
+		goto('content/stocks');
 	};
 
 	const switchPage = (): void => {
