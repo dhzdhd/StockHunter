@@ -22,13 +22,14 @@
     let bottomLink = 'Login';
 </script>
 
-<div in:slide|local={{ duration: 300 }} class="bg-slate-100 dark:bg-slate-900 dark:text-white shadow-2xl
+<div in:slide|local={{ duration: 300 }} 
+     class="bg-slate-100 dark:bg-slate-900 dark:text-white shadow-2xl
             flex flex-col gap-5 justify-center
             rounded-lg h-[10] w-96 p-7"
 >
     <h1 class="text-3xl mb-1">{title}</h1>
 
-    <form class="flex flex-col gap-5 w-full">
+    <form class="flex flex-col gap-5 w-full mt-5">
         {#if signUp}
             <input out:fly|local="{{ x: 100, duration: 300 }}" in:fly|local="{{ x: -100, duration: 300 }}"
                    placeholder=" Name" type="text" bind:value={$user.username} />
@@ -44,7 +45,7 @@
         on:click={login}
     >Enter</button>
 
-    <div class="flex flex-row justify-center">
+    <div class="flex flex-row justify-center text-sm">
         <span>{bottomText} 
             <button on:click={switchPage} class="text-primary">{bottomLink}</button>
         </span>
