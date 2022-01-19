@@ -9,14 +9,3 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: on-failure
-
-  # db:
-  #   container_name: stock-hunter-db
-  #   image: postgres
-  #   environment:
-  #     - POSTGRES_USER=root
-  #     - POSTGRES_PASSWORD=root
-  #     - POSTGRES_DB=stock-hunter
-  #   ports:
-  #     - 5432:5432
-  #   restart: on-failure

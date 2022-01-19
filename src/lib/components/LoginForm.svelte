@@ -2,7 +2,7 @@
     import { isLogin } from '../../models/route';
     import { user } from '../../models/auth';
     import { goto } from '$app/navigation';
-    import { fly } from 'svelte/transition';
+    import { fade, fly,slide } from 'svelte/transition';
 
     export const login = (): void => {
         isLogin.update((e) => !e);
@@ -22,7 +22,7 @@
     let bottomLink = 'Login';
 </script>
 
-<div class="bg-slate-100 dark:bg-slate-900 dark:text-white shadow-2xl
+<div in:slide|local={{ duration: 300 }} class="bg-slate-100 dark:bg-slate-900 dark:text-white shadow-2xl
             flex flex-col gap-5 justify-center
             rounded-lg h-[10] w-96 p-7"
 >
@@ -39,7 +39,7 @@
 
     <button
         class="mt-7 rounded-lg w-full shadow-xl h-14 active:shadow-none 
-             active:bg-black active:text-primary duration-75 bg-primary text-white 
+             active:bg-black active:text-primary bg-primary text-white 
                border-none font-semibold text-xl"
         on:click={login}
     >Enter</button>
