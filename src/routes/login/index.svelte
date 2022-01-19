@@ -4,6 +4,6 @@
 	import { fade } from 'svelte/transition';
 </script>
 
-<div in:fade|local class="w-screen fixed h-screen flex justify-center items-center p-5 text-black">
+<div in:fade class="w-screen fixed h-screen flex justify-center items-center p-5 text-black">
 	<LoginForm />
 </div>

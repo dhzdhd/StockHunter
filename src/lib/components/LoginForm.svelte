@@ -30,7 +30,7 @@
 
     <form class="flex flex-col gap-5 w-full">
         {#if signUp}
-            <input out:fly="{{ x: 100, duration: 300 }}" in:fly="{{ x: -100, duration: 300 }}"
+            <input out:fly|local="{{ x: 100, duration: 300 }}" in:fly|local="{{ x: -100, duration: 300 }}"
                    placeholder=" Name" type="text" bind:value={$user.username} />
         {/if}
         <input placeholder=" Email" type="text" bind:value={$user.email} />
