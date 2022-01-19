@@ -8,9 +8,9 @@
 	<Nav />
 	<div class="w-full">
 		<Header />
-		<main class="fixed w-full h-full">
+		<div class="fixed w-full h-full">
 			<slot />
-		</main>
+		</div>
 	</div>
 </div>
 

@@ -1,8 +1,13 @@
 <script lang="ts">
+import { goto } from '$app/navigation';
+
     import '../app.css'
 </script>
 
-<img class="w-full fixed h-full" src="2.jpg" alt="background">
-<div class="w-full h-full fixed bg-opacity-30 backdrop-filter backdrop-blur-2xl flex items-center justify-center">
-    <h1 class="text-7xl text-white">404 Error!</h1>
+<div class="h-full flex flex-col gap-5 items-center justify-center">
+    <span class="text-3xl">404 Error</span>
+    <span class="text-7xl text-white">Looks like you are lost!</span>
+    <button on:click={() => goto('/')} class="mt-10 bg-white text-black rounded-lg w-44 h-10">
+        Go back home
+    </button>
 </div>
