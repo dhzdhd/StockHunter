@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-    * {
-        @apply font-bold;
-        font-family: 'Open Sans', sans-serif;
-    }
+	* {
+		@apply font-bold;
+		font-family: 'Open Sans', sans-serif;
+	}
 }

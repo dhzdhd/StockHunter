@@ -13,9 +13,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="postcss">
-	.content {
-		@apply text-lg text-gray-600;
-	}
-</style>
