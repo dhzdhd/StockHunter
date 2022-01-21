@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '../../app.css';
-	import LoginForm from '$lib/components/LoginForm.svelte';
+	import '../app.css';
+	import AuthForm from '$lib/components/AuthForm.svelte';
 	import { goto } from '$app/navigation';
 </script>
 
@@ -11,5 +11,12 @@
 	<i class="fas fa-arrow-left text-black" />
 </button>
 <div class="w-screen fixed h-screen flex justify-center items-center p-5 text-black">
-	<LoginForm />
+	<AuthForm
+		loginDetails={{
+			register: true,
+			title: 'Sign Up',
+			bottomText: 'Already have an account?',
+			link: 'Login'
+		}}
+	/>
 </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../../app.css';
 
-	export let items: any[] = [];
+	export let items: { name: string; func: any }[] = [];
 </script>
 
 <header class="w-full h-20 relative flex flex-row justify-end items-center pr-5 gap-5">

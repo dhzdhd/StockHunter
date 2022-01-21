@@ -1,21 +1,50 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { writable } from 'svelte/store';
+import { ENV_OBJ } from './constants';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyBWKYFNHbWQ0JHeBzQcOChf__a-hLZ0664',
-	authDomain: 'stockhunter-a3bab.firebaseapp.com',
-	projectId: 'stockhunter-a3bab',
-	storageBucket: 'stockhunter-a3bab.appspot.com',
-	messagingSenderId: '834780610894',
-	appId: '1:834780610894:web:b523987ffc5239856b1e1f',
-	measurementId: 'G-322T2Y2CGG'
+	apiKey: ENV_OBJ.FB_API_KEY,
+	authDomain: ENV_OBJ.FB_AUTH_DOMAIN,
+	projectId: ENV_OBJ.FB_PROJECT_ID,
+	storageBucket: ENV_OBJ.FB_STORAGE_BUCKET,
+	messagingSenderId: ENV_OBJ.FB_MESSAGING_SENDER_ID,
+	appId: ENV_OBJ.FB_APP_ID,
+	measurementId: ENV_OBJ.FB_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+export let userDetails: any;
 
 export const user = writable({
 	username: '',
 	password: '',
 	email: ''
 });
+
+export class Auth {
+	public async register(email: string, password: string, username: string): Promise<void> {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCred) => {
+				userDetails = userCred;
+			})
+			.catch((err) => {
+				console.log(err.message);
+			});
+	}
+
+	public async login(email: string, password: string): Promise<void> {
+		await signInWithEmailAndPassword(auth, email, password)
+			.then((userCred) => {
+				userDetails = userCred;
+			})
+			.catch((err) => {
+				console.log(err.message);
+			});
+	}
+
+	public async forgotPassword(email: string): Promise<void> {
+		const a = 3;
+	}
+}

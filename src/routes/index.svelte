@@ -12,22 +12,24 @@
 	<title>Landing Page</title>
 </svelte:head>
 
-<Header
-	items={[
-		{
-			name: 'Login',
-			func: () => {
-				goto('/login');
+<div class="fixed w-full">
+	<Header
+		items={[
+			{
+				name: 'Login',
+				func: () => {
+					goto('/login');
+				}
+			},
+			{
+				name: 'SignUp',
+				func: () => {
+					goto('/register');
+				}
 			}
-		},
-		{
-			name: 'SignUp',
-			func: () => {
-				goto('/login');
-			}
-		}
-	]}
-/>
+		]}
+	/>
+</div>
 <div class="h-full flex flex-col justify-center items-center">
 	<h1 class="text-7xl md:text-8xl relative pl-5 pr-5">Stock Hunter</h1>
 </div>
