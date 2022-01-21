@@ -35,7 +35,7 @@ export class Auth {
   }
 
   public async login(email: string, password: string): Promise<void> {
-    await signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCred) => {
         userDetails = userCred;
       })
