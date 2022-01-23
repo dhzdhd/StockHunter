@@ -24,7 +24,7 @@ export const user = writable({
 });
 
 export class Auth {
-  public async register(email: string, password: string, username: string): Promise<void> {
+  public static async register(email: string, password: string, username: string): Promise<void> {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCred) => {
         userDetails = userCred;
@@ -34,7 +34,7 @@ export class Auth {
       });
   }
 
-  public async login(email: string, password: string): Promise<void> {
+  public static async login(email: string, password: string): Promise<void> {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCred) => {
         userDetails = userCred;
@@ -44,7 +44,7 @@ export class Auth {
       });
   }
 
-  public async forgotPassword(email: string): Promise<void> {
+  public static async forgotPassword(email: string): Promise<void> {
     const a = 3;
   }
 }

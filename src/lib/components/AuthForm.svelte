@@ -1,10 +1,50 @@
 <script lang="ts">
-  import { user } from '$lib/models/auth';
+  import { Auth, user } from '$lib/models/auth';
   import { goto } from '$app/navigation';
   import { fade } from 'svelte/transition';
   import { Circle } from 'svelte-loading-spinners';
+  import { getContext } from 'svelte';
+  import ErrorModal from './ErrorModal.svelte';
+
+  let error = false;
+  let errMessage = '';
+
+  const showErr = (message: string) => {
+    error = true;
+    errMessage = message;
+    setTimeout(() => {
+      error = false;
+    }, 1500);
+  };
+
+  const emailRegex = (): RegExpMatchArray | null => {
+    return $user.email.match(
+      new RegExp(
+        /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+      )
+    );
+  };
+
+  const validate = (): void => {
+    if ($user.password === '' || $user.email === '' || $user.username === '') {
+      showErr('Field(s) are empty!');
+    } else if (!emailRegex()) {
+      showErr('Invalid email address entered!');
+    } else if ($user.password.length < 6) {
+      showErr('Password should be atleast 6 characters in length!');
+    } else {
+      login();
+    }
+  };
 
   const login = (): void => {
+    if (loginDetails.register) {
+      Auth.register($user.email, $user.password, $user.username);
+    } else {
+      Auth.login($user.email, $user.password);
+    }
+
+    console.log('Success :)');
     goto('content/stocks');
   };
 
@@ -38,11 +78,13 @@
 
   <button
     class="mt-7 rounded-lg w-full shadow-xl h-14 active:shadow-none 
-             active:bg-black active:text-primary bg-primary text-white
-               flex justify-center items-center
-               border-none font-semibold text-xl"
-    on:click={login}><Circle size="30" color="white" unit="px" duration="1s" /></button
+        active:bg-black active:text-primary bg-primary text-white
+          flex justify-center items-center
+          border-none font-semibold text-xl"
+    on:click={validate}
   >
+    <Circle size="30" color="white" unit="px" duration="1s" />
+  </button>
 
   <div class="flex flex-row justify-center text-sm">
     <span
@@ -52,6 +94,10 @@
       >
     </span>
   </div>
+
+  {#if error}
+    <ErrorModal message={errMessage} />
+  {/if}
 </div>
 
 <style lang="postcss">

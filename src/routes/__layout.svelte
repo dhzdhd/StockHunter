@@ -12,6 +12,6 @@
   </div>
 
   <div class="">
-  	<Footer />
+    <Footer />
   </div>
 </div>
