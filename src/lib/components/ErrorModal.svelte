@@ -6,8 +6,8 @@
 </script>
 
 <div
-  in:fly={{ y: -50, duration: 200 }}
-  out:fade
+  in:fly|local={{ y: -50, duration: 200 }}
+  out:fade|local
   class="relative flex justify-center items-center text-center rounded-lg bg-red-500 text-white text-md p-1"
 >
   <span>{message}</span>

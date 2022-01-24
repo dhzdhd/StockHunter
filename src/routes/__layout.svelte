@@ -11,7 +11,5 @@
     <slot />
   </div>
 
-  <div class="">
-    <Footer />
-  </div>
+  <Footer />
 </div>

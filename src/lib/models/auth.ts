@@ -1,7 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { writable } from 'svelte/store';
 import { ENV_OBJ } from './constants';
+import type { UserCredential } from 'firebase/auth';
+import { writable } from 'svelte/store';
+import type { Writable } from 'svelte/store';
 
 const firebaseConfig = {
   apiKey: ENV_OBJ.FB_API_KEY,
@@ -15,7 +17,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-export let userDetails: any;
+
+export const loggedInfo: Writable<{
+  loggedIn: boolean;
+  username?: string;
+  userInfo?: UserCredential;
+}> = writable({ loggedIn: true });
 
 export const user = writable({
   username: '',
@@ -24,27 +31,30 @@ export const user = writable({
 });
 
 export class Auth {
-  public static async register(email: string, password: string, username: string): Promise<void> {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCred) => {
-        userDetails = userCred;
-      })
-      .catch((err) => {
-        console.log(err.message);
+  public static async register(email: string, password: string, username: string): Promise<string> {
+    /// Returns empty string if successful
+    try {
+      loggedInfo.set({
+        loggedIn: true,
+        username: username,
+        userInfo: await createUserWithEmailAndPassword(auth, email, password)
       });
+      return '';
+    } catch (err) {
+      return err as string;
+    }
   }
 
-  public static async login(email: string, password: string): Promise<void> {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCred) => {
-        userDetails = userCred;
-      })
-      .catch((err) => {
-        console.log(err.message);
+  public static async login(email: string, password: string): Promise<string> {
+    /// Returns empty string if successful
+    try {
+      loggedInfo.set({
+        loggedIn: true,
+        userInfo: await signInWithEmailAndPassword(auth, email, password)
       });
-  }
-
-  public static async forgotPassword(email: string): Promise<void> {
-    const a = 3;
+      return '';
+    } catch (err) {
+      return err as string;
+    }
   }
 }

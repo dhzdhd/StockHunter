@@ -8,6 +8,7 @@
 
   let error = false;
   let errMessage = '';
+  let busy = false;
 
   const showErr = (message: string) => {
     error = true;
@@ -25,27 +26,41 @@
     );
   };
 
-  const validate = (): void => {
-    if ($user.password === '' || $user.email === '' || $user.username === '') {
+  const validate = async (): Promise<void> => {
+    busy = true;
+
+    if (
+      $user.password === '' ||
+      $user.email === '' ||
+      (loginDetails.register && $user.username === '')
+    ) {
       showErr('Field(s) are empty!');
     } else if (!emailRegex()) {
       showErr('Invalid email address entered!');
     } else if ($user.password.length < 6) {
       showErr('Password should be atleast 6 characters in length!');
     } else {
-      login();
+      const res = await authenticate();
+      if (res !== '') {
+        showErr(res);
+      } else {
+        await goto('content');
+      }
     }
+
+    busy = false;
   };
 
-  const login = (): void => {
+  const authenticate = async (): Promise<string> => {
+    let result: string;
+
     if (loginDetails.register) {
-      Auth.register($user.email, $user.password, $user.username);
+      result = await Auth.register($user.email, $user.password, $user.username);
     } else {
-      Auth.login($user.email, $user.password);
+      result = await Auth.login($user.email, $user.password);
     }
 
-    console.log('Success :)');
-    goto('content/stocks');
+    return result;
   };
 
   const switchRoute = (link: string): void => {
@@ -83,13 +98,17 @@
           border-none font-semibold text-xl"
     on:click={validate}
   >
-    <Circle size="30" color="white" unit="px" duration="1s" />
+    {#if busy}
+      <Circle size="30" color="white" unit="px" duration="1s" />
+    {:else}
+      {loginDetails.title}
+    {/if}
   </button>
 
   <div class="flex flex-row justify-center text-sm">
     <span
       >{loginDetails.bottomText}
-      <button on:click={() => switchRoute(loginDetails.link)} class="text-primary"
+      <button on:click|preventDefault={() => switchRoute(loginDetails.link)} class="text-primary"
         >{loginDetails.link}</button
       >
     </span>
