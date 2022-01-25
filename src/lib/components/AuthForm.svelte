@@ -92,7 +92,6 @@
   </form>
 
   <button
-    transition:fade
     class="mt-7 rounded-lg w-full shadow-xl h-14 active:shadow-none 
         bg-primary text-white
           flex justify-center items-center

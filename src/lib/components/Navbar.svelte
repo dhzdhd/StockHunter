@@ -1,6 +1,5 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
-
   import NavbarItem from './NavbarItem.svelte';
 
   let showMenu = false;

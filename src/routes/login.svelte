@@ -2,7 +2,7 @@
   import '../app.css';
   import AuthForm from '$lib/components/AuthForm.svelte';
   import { goto } from '$app/navigation';
-  import ThemeButton from '$lib/components/ThemeButton.svelte';
+  // import ThemeButton from '$lib/components/ThemeButton.svelte';
   
 </script>
 
