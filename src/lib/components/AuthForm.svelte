@@ -85,10 +85,25 @@
 
   <form class="flex flex-col gap-5 w-full mt-5">
     {#if loginDetails.register}
-      <input class="dark:placeholder:text-white dark:bg-slate-800" placeholder="Name" type="text" bind:value={$user.username} />
+      <input
+        class="dark:placeholder:text-white dark:bg-slate-800"
+        placeholder="Name"
+        type="text"
+        bind:value={$user.username}
+      />
     {/if}
-    <input class="dark:placeholder:text-white dark:bg-slate-800" placeholder="Email" type="email" bind:value={$user.email} />
-    <input class="dark:placeholder:text-white dark:bg-slate-800" placeholder="Password" type="password" bind:value={$user.password} />
+    <input
+      class="dark:placeholder:text-white dark:bg-slate-800"
+      placeholder="Email"
+      type="email"
+      bind:value={$user.email}
+    />
+    <input
+      class="dark:placeholder:text-white dark:bg-slate-800"
+      placeholder="Password"
+      type="password"
+      bind:value={$user.password}
+    />
   </form>
 
   <button

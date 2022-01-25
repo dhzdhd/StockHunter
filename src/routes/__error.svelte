@@ -7,7 +7,10 @@
 <div class="h-full flex flex-col gap-5 items-center justify-center">
   <span class="text-3xl">404 Error</span>
   <span class="text-5xl text-center md:text-7xl text-white">Looks like you are lost !</span>
-  <button on:click={() => goto('/')} class="mt-10 bg-white text-black dark:bg-slate-900 dark:text-white rounded-lg w-44 h-10">
+  <button
+    on:click={() => goto('/')}
+    class="mt-10 bg-white text-black dark:bg-slate-900 dark:text-white rounded-lg w-44 h-10"
+  >
     Go back home
   </button>
 </div>

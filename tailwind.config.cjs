@@ -13,7 +13,20 @@ module.exports = {
       },
       backgroundImage: {
         'light-image': "url('static/2.png')",
-        'dark-image': "url('static/2_dark.png')",
+        'dark-image': "url('static/2_dark.png')"
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'translate(1px)' },
+          '50%': { transform: 'translate(-1px)' }
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite'
+      },
+      transitionTimingFunction: {
+        'in-bounce': 'cubic-bezier(0.17,0.67,0.83,0.67)',
+        'out-bounce': 'cubic-bezier(0.19, 1, 0.22, 1)'
       }
     }
   },
