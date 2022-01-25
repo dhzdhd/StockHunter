@@ -13,7 +13,7 @@
 </script>
 
 <div>
-  <div class="w-full fixed h-full bg-[url('2.png')] dark:bg-[url('2_dark.png')] dark:bg-black"></div>
+  <div class="w-full fixed h-full bg-light-image dark:bg-dark-image dark:bg-black"></div>
   <div
     class="w-full absolute bg-opacity-30 text-white backdrop-filter backdrop-blur-2xl h-screen flex flex-col"
   >

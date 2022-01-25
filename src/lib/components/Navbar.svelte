@@ -6,7 +6,6 @@
 
   function handleMenuClick() {
     showMenu = !showMenu;
-    console.log('he');
   }
 </script>
 

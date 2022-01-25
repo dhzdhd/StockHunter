@@ -10,6 +10,10 @@ module.exports = {
       colors: {
         primary: '#066f7c',
         secondary: '#73ccb9'
+      },
+      backgroundImage: {
+        'light-image': "url('static/2.png')",
+        'dark-image': "url('static/2_dark.png')",
       }
     }
   },
