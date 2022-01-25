@@ -4,9 +4,9 @@
   export let items: { name: string; func: any }[] = [];
 </script>
 
-<header class="w-full h-20 relative flex flex-row justify-end items-center pr-5 gap-5">
+<header class="w-full h-20 relative flex flex-row justify-end items-center pr-5 gap-5 ">
   {#each items as item}
-    <button on:click={item.func} class="text-black bg-white rounded-lg w-20 h-10"
+    <button on:click={item.func} class="text-black dark:text-white bg-white dark:bg-slate-900 rounded-lg w-20 h-10"
       >{item.name}</button
     >
   {/each}

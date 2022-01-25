@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { fly } from 'svelte/transition';
+  import { scale } from 'svelte/transition';
+  import { quintOut } from 'svelte/easing';
 
   export let navbarItemContents: {
     icon?: string;
@@ -11,11 +12,14 @@
 </script>
 
 <a
-  href="{navbarItemContents.href}"
-  class="w-full h-20 hover:bg-slate-200 focus:bg-slate-300 flex flex-row gap-5 items-center"
+  href={navbarItemContents.href}
+  class="w-full h-20 hover:bg-slate-200 dark:hover:bg-slate-700 focus:bg-slate-300 dark:focus:bg-slate-600 flex flex-row gap-5 items-center"
 >
   {#if $page.path === navbarItemContents.href}
-    <div in:fly={{ x: -10 }} class="color-bar fixed h-14 w-1.5 bg-green-400 rounded-r-xl" />
+    <div
+      in:scale={{ easing: quintOut, duration: 700 }}
+      class="color-bar fixed h-14 w-1.5 bg-green-400 rounded-r-xl"
+    />
   {/if}
   <div class="flex flex-row pl-5 items-center gap-5 w-full">
     <span class="{navbarItemContents.type} fa-{navbarItemContents.icon}" />

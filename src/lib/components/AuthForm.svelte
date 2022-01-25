@@ -85,15 +85,16 @@
 
   <form class="flex flex-col gap-5 w-full mt-5">
     {#if loginDetails.register}
-      <input placeholder="Name" type="text" bind:value={$user.username} />
+      <input class="dark:placeholder:text-white dark:bg-slate-800" placeholder="Name" type="text" bind:value={$user.username} />
     {/if}
-    <input placeholder="Email" type="email" bind:value={$user.email} />
-    <input placeholder="Password" type="password" bind:value={$user.password} />
+    <input class="dark:placeholder:text-white dark:bg-slate-800" placeholder="Email" type="email" bind:value={$user.email} />
+    <input class="dark:placeholder:text-white dark:bg-slate-800" placeholder="Password" type="password" bind:value={$user.password} />
   </form>
 
   <button
+    transition:fade
     class="mt-7 rounded-lg w-full shadow-xl h-14 active:shadow-none 
-        active:bg-black active:text-primary bg-primary text-white
+        bg-primary text-white
           flex justify-center items-center
           border-none font-semibold text-xl"
     on:click={validate}

@@ -6,9 +6,9 @@
 
 <button
   on:click={() => goto('/')}
-  class="absolute mt-5 ml-5 w-10 h-10 rounded-lg bg-white flex justify-center items-center"
+  class="absolute mt-5 ml-5 w-10 h-10 rounded-lg bg-white dark:bg-slate-900 flex justify-center items-center"
 >
-  <i class="fas fa-arrow-left text-black" />
+  <i class="fas fa-arrow-left text-black dark:text-white" />
 </button>
 <div class="w-screen h-full flex justify-center items-center p-5 text-black">
   <AuthForm

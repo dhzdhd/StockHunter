@@ -1,6 +1,15 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
+  import { onMount } from 'svelte';
   import '../app.css';
+
+  onMount(() => {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  })
 </script>
 
 <div>
