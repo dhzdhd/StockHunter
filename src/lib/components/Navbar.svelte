@@ -15,10 +15,10 @@
     ? 'w-[14rem]'
     : 'w-[4rem]'} duration-200 h-screen flex flex-col items-center backdrop-blur-3xl bg-slate-100 dark:bg-slate-800 dark:text-white"
 >
-  <div class="header w-full h-20 flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center justify-center w-full h-20 header">
     <button
       on:click={handleMenuClick}
-      class="fas fa-bars w-full h-full hover:bg-slate-200 dark:hover:bg-slate-700"
+      class="w-full h-full fas fa-bars hover:bg-slate-200 dark:hover:bg-slate-700"
     />
   </div>
 
@@ -39,7 +39,7 @@
     }}
   />
 
-  <div class="-z-10 h-full fixed flex items-end justify-center pb-5">
+  <div class="fixed flex items-end justify-center h-full pb-5 -z-10">
     <ThemeButton />
   </div>
 </nav>

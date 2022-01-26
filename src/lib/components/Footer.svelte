@@ -2,9 +2,9 @@
   import '../../app.css';
 </script>
 
-<footer class="flex flex-row gap-5 justify-center text-md text-white w-screen">
+<footer class="flex flex-row justify-center w-screen gap-5 text-white text-md">
   <span>Made by dhzdhd</span>
   <a href="https://github.com/dhzdhd/StockHunter" target="_blank">
-    <span class="fab fa-github hover:scale-125 duration-300 cursor-pointer" />
+    <span class="duration-300 cursor-pointer fab fa-github hover:scale-125" />
   </a>
 </footer>

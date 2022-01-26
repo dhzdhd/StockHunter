@@ -81,9 +81,9 @@
             flex flex-col gap-5 justify-center
             rounded-lg h-[10] w-96 p-7"
 >
-  <h1 class="text-3xl mb-1">{loginDetails.title}</h1>
+  <h1 class="mb-1 text-3xl">{loginDetails.title}</h1>
 
-  <form class="flex flex-col gap-5 w-full mt-5">
+  <form class="flex flex-col w-full gap-5 mt-5">
     {#if loginDetails.register}
       <input
         class="dark:placeholder:text-white dark:bg-slate-800"
@@ -107,10 +107,7 @@
   </form>
 
   <button
-    class="mt-7 rounded-lg w-full shadow-xl h-14 active:shadow-none 
-        bg-primary text-white
-          flex justify-center items-center
-          border-none font-semibold text-xl"
+    class="flex items-center justify-center w-full text-xl font-semibold text-white border-none rounded-lg shadow-xl mt-7 h-14 active:shadow-none bg-primary"
     on:click={validate}
   >
     {#if busy}

@@ -15,6 +15,6 @@
 <div class="fixed w-full">
   
 </div>
-<div class="h-full flex flex-col justify-center items-center">
-  <h1 class="text-7xl md:text-8xl relative pl-5 pr-5">Stock Hunter</h1>
+<div class="flex flex-col items-center justify-center h-full">
+  <h1 class="relative pl-5 pr-5 text-7xl md:text-8xl">Stock Hunter</h1>
 </div>

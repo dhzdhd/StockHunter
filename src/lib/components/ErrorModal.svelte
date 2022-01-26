@@ -8,7 +8,7 @@
 <div
   in:fly|local={{ y: -50, duration: 200 }}
   out:fade|local
-  class="relative flex justify-center items-center text-center rounded-lg bg-red-500 text-white text-md p-1"
+  class="relative flex items-center justify-center p-1 text-center text-white bg-red-500 rounded-lg text-md"
 >
   <span>{message}</span>
 </div>

@@ -4,12 +4,12 @@
   import '../app.css';
 </script>
 
-<div class="h-full flex flex-col gap-5 items-center justify-center">
+<div class="flex flex-col items-center justify-center h-full gap-5">
   <span class="text-3xl">404 Error</span>
-  <span class="text-5xl text-center md:text-7xl text-white">Looks like you are lost !</span>
+  <span class="text-5xl text-center text-white md:text-7xl">Looks like you are lost !</span>
   <button
     on:click={() => goto('/')}
-    class="mt-10 bg-white text-black dark:bg-slate-900 dark:text-white rounded-lg w-44 h-10"
+    class="h-10 mt-10 text-black bg-white rounded-lg dark:bg-slate-900 dark:text-white w-44"
   >
     Go back home
   </button>

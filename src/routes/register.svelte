@@ -6,11 +6,11 @@
 
 <button
   on:click={() => goto('/')}
-  class="absolute mt-5 ml-5 w-10 h-10 rounded-lg bg-white dark:bg-slate-900 flex justify-center items-center"
+  class="absolute flex items-center justify-center w-10 h-10 mt-5 ml-5 bg-white rounded-lg dark:bg-slate-900"
 >
-  <i class="fas fa-arrow-left text-black dark:text-white" />
+  <i class="text-black fas fa-arrow-left dark:text-white" />
 </button>
-<div class="w-screen h-full flex justify-center items-center p-5 text-black">
+<div class="flex items-center justify-center w-screen h-full p-5 text-black">
   <AuthForm
     loginDetails={{
       register: true,

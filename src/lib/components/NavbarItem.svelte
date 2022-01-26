@@ -13,7 +13,7 @@
 
 <a
   href={navbarItemContents.href}
-  class="w-full h-20 hover:bg-slate-200 dark:hover:bg-slate-700 focus:bg-slate-300 dark:focus:bg-slate-600 flex flex-row gap-5 items-center"
+  class="flex flex-row items-center w-full h-20 gap-5 hover:bg-slate-200 dark:hover:bg-slate-700 focus:bg-slate-300 dark:focus:bg-slate-600"
 >
   {#if $page.path === navbarItemContents.href}
     <div
@@ -21,7 +21,7 @@
       class="color-bar fixed h-14 w-1.5 bg-green-400 rounded-r-xl"
     />
   {/if}
-  <div class="flex flex-row pl-5 items-center gap-5 w-full">
+  <div class="flex flex-row items-center w-full gap-5 pl-5">
     <span class="{navbarItemContents.type} fa-{navbarItemContents.icon}" />
     <h2>{navbarItemContents.text}</h2>
   </div>

@@ -19,7 +19,7 @@ import { fly } from "svelte/transition";
 
 <button
   on:click={changeTheme}
-  class="flex items-center h-10 w-10 justify-center shadow-md text-black bg-white dark:text-white dark:bg-slate-700 rounded-lg dark:hover:bg-slate-600"
+  class="flex items-center justify-center w-10 h-10 text-black bg-white rounded-lg shadow-md dark:text-white dark:bg-slate-700 dark:hover:bg-slate-600"
 >
   {#key icon}
     <span in:fly={{ x: 50 }} out:fly={{ x: -50 }} class="fas fa-{icon} active:" />

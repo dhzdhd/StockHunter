@@ -20,11 +20,11 @@
 </script>
 
 <div>
-  <div class="w-full fixed h-full bg-light-image dark:bg-dark-image dark:bg-black" />
+  <div class="fixed w-full h-full bg-light-image dark:bg-dark-image dark:bg-black" />
   <div
-    class="z-20 w-full absolute bg-opacity-30 text-white backdrop-filter backdrop-blur-2xl h-screen flex flex-col"
+    class="absolute z-20 flex flex-col w-full h-screen text-white bg-opacity-30 backdrop-filter backdrop-blur-2xl"
   >
-    <div class="z-10 absolute w-screen justify-end">
+    <div class="absolute z-10 justify-end w-screen">
       <Header
         items={[
           {
@@ -43,7 +43,7 @@
       />
     </div>
       <slot />
-    <div class="-z-10 absolute h-screen flex items-end pb-3">
+    <div class="absolute flex items-end h-screen pb-3 -z-10">
       <Footer />
     </div>
   </div>
