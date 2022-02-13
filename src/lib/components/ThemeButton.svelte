@@ -1,6 +1,6 @@
 <script lang="ts">
-import { fly } from "svelte/transition";
-  // ! Add onMount for selecting icon per localStorage
+import { fly, slide, fade } from "svelte/transition";
+  //! Add onMount for selecting icon per localStorage
   let icon = 'moon';
   
   async function changeTheme() {
@@ -19,9 +19,9 @@ import { fly } from "svelte/transition";
 
 <button
   on:click={changeTheme}
-  class="flex items-center justify-center w-10 h-10 text-black bg-white rounded-lg shadow-md dark:text-white dark:bg-slate-700 dark:hover:bg-slate-600"
+  class="w-10 h-10 mx-auto text-black bg-white rounded-lg shadow-md dark:text-white dark:bg-slate-700 dark:hover:bg-slate-600"
 >
   {#key icon}
-    <span in:fly={{ x: 50 }} out:fly={{ x: -50 }} class="fas fa-{icon} active:" />
+    <span in:fly={{ x: 50 }} out:fly={{ x: -50 }} class="fas fa-{icon}" />
   {/key}
 </button>

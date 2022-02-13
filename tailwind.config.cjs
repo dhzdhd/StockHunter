@@ -9,11 +9,12 @@ module.exports = {
     extend: {
       colors: {
         primary: '#066f7c',
-        secondary: '#73ccb9'
+        secondary: '#73ccb9',
+        dark_primary: ''
       },
       backgroundImage: {
-        'light-image': "url('static/2.png')",
-        'dark-image': "url('static/2_dark.png')"
+        'light-image': "url('/2.png')",
+        'dark-image': "url('/2_dark.png')"
       },
       keyframes: {
         wiggle: {

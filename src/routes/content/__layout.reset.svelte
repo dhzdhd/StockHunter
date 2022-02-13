@@ -28,7 +28,7 @@
 <div class="flex flex-row w-screen h-screen dark:bg-slate-900 dark:text-white">
   <Nav />
   <div class="w-full">
-    <Header />
+    <Header leadingTitle={'Home'} />
     <div class="fixed w-full h-full p-5">
       <slot />
     </div>

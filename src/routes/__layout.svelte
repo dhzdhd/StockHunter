@@ -20,33 +20,14 @@
 </script>
 
 <div>
-  <div class="fixed w-full h-full bg-light-image dark:bg-dark-image dark:bg-black" />
-  <div
-    class="absolute z-20 flex flex-col w-full h-screen text-white bg-opacity-30 backdrop-filter backdrop-blur-2xl"
-  >
-    <div class="absolute z-10 justify-end w-screen">
-      <Header
-        items={[
-          {
-            name: 'Login',
-            func: () => {
-              goto('/login');
-            }
-          },
-          {
-            name: 'SignUp',
-            func: () => {
-              goto('/register');
-            }
-          }
-        ]}
-      />
-    </div>
+  <div class="absolute w-screen h-screen bg-light-image dark:bg-dark-image dark:bg-black">
+    <div
+      class="flex flex-col w-screen h-screen text-white bg-opacity-30 backdrop-filter backdrop-blur-2xl"
+    >
       <slot />
-    <div class="absolute flex items-end h-screen pb-3 -z-10">
-      <Footer />
+      <div class="absolute flex items-end h-screen pb-3 -z-10">
+        <Footer />
+      </div>
     </div>
-  </div>
-
-  
+  </div>  
 </div>

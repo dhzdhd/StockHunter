@@ -12,9 +12,25 @@
   <title>Landing Page</title>
 </svelte:head>
 
-<div class="fixed w-full">
-  
+<div class="absolute z-10 justify-end w-screen">
+  <Header
+    
+    trailingButtonItems={[
+      {
+        text: 'Login',
+        func: () => {
+          goto('/login');
+        }
+      },
+      {
+        text: 'SignUp',
+        func: () => {
+          goto('/register');
+        }
+      }
+    ]}
+  />
 </div>
 <div class="flex flex-col items-center justify-center h-full">
-  <h1 class="relative pl-5 pr-5 text-7xl md:text-8xl">Stock Hunter</h1>
+  <h1 class="pl-5 pr-5 duration-200 text-7xl md:text-8xl">Stock Hunter</h1>
 </div>
